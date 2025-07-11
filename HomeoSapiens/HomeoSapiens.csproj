@@ -14,14 +14,18 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Vite.AspNetCore" Version="2.4.1"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7"/>
-        <PackageReference Include="Npgsql" Version="9.0.3"/>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Vite.AspNetCore" Version="2.4.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+        <PackageReference Include="Npgsql" Version="9.0.3" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DataLayer\DataLayer.csproj"/>
+        <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
     </ItemGroup>
 
 </Project>
