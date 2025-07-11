@@ -1,8 +1,12 @@
+using DataLayer.EfCode;
+using Microsoft.EntityFrameworkCore;
 using Vite.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("AppDbContext")));
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddViteServices();
 

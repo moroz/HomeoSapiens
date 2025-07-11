@@ -1,27 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <OutputType>Exe</OutputType>
         <TargetFramework>net9.0</TargetFramework>
-        <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="..\.dockerignore">
-            <Link>.dockerignore</Link>
-        </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Vite.AspNetCore" Version="2.4.1"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7"/>
         <PackageReference Include="Npgsql" Version="9.0.3"/>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DataLayer\DataLayer.csproj"/>
+        <Folder Include="EfClasses\"/>
     </ItemGroup>
 
 </Project>
