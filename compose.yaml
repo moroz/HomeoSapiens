@@ -1,0 +1,7 @@
+﻿services:
+  homeosapiens:
+    image: homeosapiens
+    build:
+      context: .
+      dockerfile: HomeoSapiens/Dockerfile
+
