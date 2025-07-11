@@ -1,7 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<DataLayer.EfClasses.Event>
 
 <div class="container mx-auto">
     <h1 class="font-bold text-3xl text-center bg-[salmon]">Welcome</h1>
+    @foreach (var ev in Model)
+    {
+        <div class="grid gap-1 border border-blue-500 p-4">
+            <span>@ev.Name</span>
+            <span>@ev.BeginsAt.ToString("yyyy-MM-dd")</span>
+            <span>@ev.EndsAt.ToString("yyyy-MM-dd")</span>
+            <span>@ev.Description</span>
+        </div>
+    }
 </div>

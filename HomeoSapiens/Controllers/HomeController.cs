@@ -1,21 +1,26 @@
 using System.Diagnostics;
+using DataLayer.EfCode;
 using Microsoft.AspNetCore.Mvc;
 using HomeoSapiens.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HomeoSapiens.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly AppDbContext _dbContext;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, AppDbContext dbContext)
     {
         _logger = logger;
+        _dbContext = dbContext;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var events = await _dbContext.Events.AsNoTracking().ToListAsync();
+        return View(events);
     }
 
     public IActionResult Privacy()
