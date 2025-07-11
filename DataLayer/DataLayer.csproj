@@ -15,8 +15,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Migrations\uuidv7.sql" />
-      <EmbeddedResource Include="Migrations\uuidv7.sql" />
+        <None Remove="Migrations\CreateUUIDv7Function.sql"/>
+        <EmbeddedResource Include="Migrations\CreateUUIDv7Function.sql"/>
     </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using Vite.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("AppDbContext")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("AppDbContext")).UseSnakeCaseNamingConvention());
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddViteServices();
