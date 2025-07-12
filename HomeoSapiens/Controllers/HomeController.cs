@@ -11,7 +11,7 @@ public class HomeController(IEventRepository eventRepository)
     public async Task<IActionResult> Index()
     {
         var events = await eventRepository.GetAllAsync();
-        return View(new HomeViewModel(events));
+        return View(new HomeViewModel { Events = events });
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

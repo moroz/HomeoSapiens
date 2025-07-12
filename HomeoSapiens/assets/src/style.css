@@ -1,3 +1,21 @@
 @import "tailwindcss";
 
 @config "../tailwind.config.js";
+
+@theme {
+    --font-sans: "DM Sans", Inter;
+    --breakpoint-xl: 72rem;
+    --breakpoint-2xl: 82rem;
+    --spacing-header-height: 5rem;
+    --color-primary: var(--color-indigo-900);
+}
+
+:is(.navbar) {
+    &, ul, ul a {
+        @apply h-full;
+    }
+
+    ul a {
+        @apply px-4 flex items-center font-bold;
+    }
+}

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - HomeoSapiens</title>
     <script type="importmap"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet"/>
     <environment include="Development">
         <!-- It's mandatory to use the full url for the Vite client script. -->
         <script type="module" src="http://localhost:5173/@@vite/client"></script>
@@ -15,12 +20,12 @@
     </environment>
 </head>
 <body>
-<main role="main" class="pb-3">
-    @RenderBody()
-</main>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-@await RenderSectionAsync("Scripts", required: false)
+<div class="layout flex flex-col min-h-screen">
+    <partial name="_Header"/>
+    <main class="flex-1 py-header-height">
+        @RenderBody()
+    </main>
+    <partial name="_Footer"/>
+</div>
 </body>
 </html>
