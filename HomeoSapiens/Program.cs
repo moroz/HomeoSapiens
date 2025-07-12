@@ -1,4 +1,5 @@
 using DataLayer.EfCode;
+using DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Vite.AspNetCore;
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddViteServices();
 
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,10 +23,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseViteDevelopmentServer(true);
-}
+if (app.Environment.IsDevelopment()) app.UseViteDevelopmentServer(true);
 
 app.UseHttpsRedirection();
 app.UseRouting();
