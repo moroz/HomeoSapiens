@@ -10,7 +10,7 @@ public class HomeController(IEventRepository eventRepository)
 {
     public async Task<IActionResult> Index()
     {
-        var events = await eventRepository.GetAllAsync();
+        var events = await eventRepository.GetFeaturedAsync();
         return View(new HomeViewModel { Events = events });
     }
 

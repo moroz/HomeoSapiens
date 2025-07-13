@@ -3,3 +3,34 @@ dotnet = "latest"
 node = "latest"
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
+
+[env]
+PGDATABASE = "homeo_sapiens_dev"
+
+[tasks."db:setup"]
+run = ["mise r db:migrate", "mise r db:seed"]
+
+[tasks."db:migrate"]
+run = "dotnet ef database update --project DataLayer --startup-project HomeoSapiens"
+
+[tasks."db:seed"]
+run = """
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ ! -n "$PGDATABASE" ]; then
+  echo "PGDATABASE is not set!"
+  exit 1
+fi
+
+for file in DataLayer/Seeds/*.sql; do
+  psql $PGDATABASE -f "$(realpath $file)"
+done
+"""
+
+[tasks.dev]
+run = """
+tmux split-window -v "cd HomeoSapiens/assets && pnpm run dev"
+cd HomeoSapiens && dotnet watch run
+"""

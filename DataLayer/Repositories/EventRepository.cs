@@ -15,4 +15,12 @@ public class EventRepository(AppDbContext context) : IEventRepository
             .OrderByDescending(e => e.Id)
             .ToListAsync();
     }
+
+    public async Task<IEnumerable<Event>> GetFeaturedAsync()
+    {
+        return await context.Events.AsNoTracking()
+            .OrderByDescending(e => e.Id)
+            .Take(1)
+            .ToListAsync();
+    }
 }
