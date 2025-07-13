@@ -14,6 +14,12 @@ public class HomeController(IEventRepository eventRepository)
         return View(new HomeViewModel { Events = events });
     }
 
+    [Route("/about")]
+    public IActionResult About()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
