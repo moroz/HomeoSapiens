@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using HomeoSapiens.Helpers
 @model HomeViewModel
 
 <section class="hero bg-amber-100 h-100 flex items-center">
@@ -12,14 +13,14 @@
 </section>
 
 <div class="container mx-auto">
-    <h1 class="font-bold text-3xl text-center">Featured Events</h1>
+    <h2 class="font-bold text-3xl text-center">Featured Events</h2>
     @foreach (var ev in Model.Events)
     {
         <div class="grid gap-1 border border-blue-500 p-4">
-            <span>@ev.NameEn</span>
-            <span>@ev.BeginsAt.ToString("yyyy-MM-dd")</span>
+            <h3 class="font-bold text-2xl">@ev.NameEn</h3>
+            <span>@ViewHelper.FormatDateTime(ev.BeginsAt)</span>
             <span>@ev.EndsAt.ToString("yyyy-MM-dd")</span>
-            <span>@ev.DescriptionEn</span>
+            <div class="content">@Html.Raw(ViewHelper.RenderMarkdown(ev.DescriptionEn))</div>
         </div>
     }
 </div>
