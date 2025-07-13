@@ -1,7 +1,22 @@
 @{
     ViewData["Title"] = "Watch";
 }
+@model VideoViewModel;
 
 <div class="container mx-auto">
     <h2 class="font-bold text-3xl">Watch</h2>
+
+    @foreach (var video in Model.Videos)
+    {
+        var url = $"https://www.youtube.com/watch?v={video.YoutubeId}";
+        <article class="video">
+            <a href="@url" target="_blank" rel="noopener noreferrer" class="thumbnail">
+                <img src="https://img.youtube.com/vi/@video.YoutubeId/sddefault.jpg"/>
+            </a>
+
+            <p>
+                @video.NameEn
+            </p>
+        </article>
+    }
 </div>

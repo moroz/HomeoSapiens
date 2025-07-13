@@ -11,10 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="EfClasses\"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <None Remove="Migrations\CreateUUIDv7Function.sql"/>
         <EmbeddedResource Include="Migrations\CreateUUIDv7Function.sql"/>
     </ItemGroup>

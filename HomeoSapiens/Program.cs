@@ -12,6 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddViteServices();
 
 builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IVideoRepository, VideoRepository>();
 
 var app = builder.Build();
 

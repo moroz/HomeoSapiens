@@ -1,13 +1,16 @@
+using DataLayer.Repositories;
+using HomeoSapiens.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeoSapiens.Controllers;
 
-public class VideosController : Controller
+public class VideosController(IVideoRepository videoRepository) : Controller
 {
     // GET
     [Route("/watch")]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var videos = await videoRepository.GetAllAsync();
+        return View(new VideoViewModel { Videos = videos });
     }
 }
