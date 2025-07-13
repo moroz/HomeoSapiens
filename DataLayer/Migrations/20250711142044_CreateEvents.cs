@@ -11,15 +11,20 @@ namespace DataLayer.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.Sql("create extension if not exists citext");
+            
             migrationBuilder.CreateTable(
                 name: "events",
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false, defaultValueSql: "uuid7()"),
-                    name = table.Column<string>(type: "text", nullable: false),
+                    name_en = table.Column<string>(type: "text", nullable: false),
+                    name_pl = table.Column<string>(type: "text", nullable: true),
+                    slug = table.Column<string>(type: "citext", nullable: false),
                     begins_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     ends_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    description = table.Column<string>(type: "text", nullable: true),
+                    description_en = table.Column<string>(type: "text", nullable: true),
+                    description_pl = table.Column<string>(type: "text", nullable: true),
                     inserted_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now() at time zone 'utc'"),
                     updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now() at time zone 'utc'")
                 },
@@ -28,6 +33,8 @@ namespace DataLayer.Migrations
                     table.PrimaryKey("pk_events", x => x.id);
                     table.CheckConstraint("events_ends_at_begins_at_check", sql: "ends_at > begins_at");
                 });
+
+            migrationBuilder.CreateIndex(name: "events_slug_idx", unique: true, columns: ["slug"], table: "events");
         }
 
         /// <inheritdoc />

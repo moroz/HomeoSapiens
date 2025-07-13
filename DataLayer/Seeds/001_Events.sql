@@ -2,7 +2,7 @@ begin;
 
 truncate table events;
 
-insert into events (name, slug, begins_at, ends_at, description)
+insert into events (name_en, slug, begins_at, ends_at, description_en)
 values ('Best of Utrecht - Highlights of the LMHI 2025', 'best-of-utrecht-highlights-of-the-lmhi-2025', '2025-05-30T02:00:00Z', '2025-05-30T04:30:00Z', 'Just came back from Utrecht where I took part in the LMHI conference (Liga Medicorum Homoeopathica Internationalis).
 
 Happy to announce the free webinar "Best of Utrecht - Highlights of LMHI 2025"

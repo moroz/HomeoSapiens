@@ -16,10 +16,10 @@
     @foreach (var ev in Model.Events)
     {
         <div class="grid gap-1 border border-blue-500 p-4">
-            <span>@ev.Name</span>
+            <span>@ev.NameEn</span>
             <span>@ev.BeginsAt.ToString("yyyy-MM-dd")</span>
             <span>@ev.EndsAt.ToString("yyyy-MM-dd")</span>
-            <span>@ev.Description</span>
+            <span>@ev.DescriptionEn</span>
         </div>
     }
 </div>

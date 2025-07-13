@@ -10,8 +10,25 @@ PGDATABASE = "homeo_sapiens_dev"
 [tasks."db:setup"]
 run = ["mise r db:migrate", "mise r db:seed"]
 
+[tasks."db:reset"]
+run = ["mise r db:drop", "mise r db:setup"]
+
 [tasks."db:migrate"]
 run = "dotnet ef database update --project DataLayer --startup-project HomeoSapiens"
+
+[tasks."db:drop"]
+run = """
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ ! -n "$PGDATABASE" ]; then
+  echo "PGDATABASE is not set!"
+  exit 1
+fi
+
+dropdb $PGDATABASE
+"""
 
 [tasks."db:seed"]
 run = """
