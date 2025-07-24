@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DataLayer.Migrations
+namespace HomeoSapiens.Database.Migrations
 {
     /// <inheritdoc />
     public partial class CreateVideos : Migration

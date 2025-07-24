@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DataLayer.Migrations
+namespace HomeoSapiens.Database.Migrations
 {
     /// <inheritdoc />
     public partial class CreateUUIDv7Function : Migration
@@ -14,7 +14,7 @@ namespace DataLayer.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            using var stream = assembly.GetManifestResourceStream("DataLayer.Migrations.CreateUUIDv7Function.sql");
+            using var stream = assembly.GetManifestResourceStream("HomeoSapiens.Database.Migrations.CreateUUIDv7Function.sql");
             if (stream == null)
             {
                 throw new Exception($"Resource not found");

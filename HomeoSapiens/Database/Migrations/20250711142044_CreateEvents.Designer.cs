@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace DataLayer.Migrations
+namespace HomeoSapiens.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20250711142044_CreateEvents")]
