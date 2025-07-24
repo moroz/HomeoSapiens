@@ -27,15 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DataLayer\DataLayer.csproj"/>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Database\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Include="Database\Migrations\CreateUUIDv7Function.sql" />
+        <EmbeddedResource Include="Database\Scripts\CreateUUIDv7Function.sql"/>
     </ItemGroup>
 
 </Project>

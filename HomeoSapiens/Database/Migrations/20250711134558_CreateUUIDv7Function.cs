@@ -14,7 +14,7 @@ namespace HomeoSapiens.Database.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            using var stream = assembly.GetManifestResourceStream("HomeoSapiens.Database.Migrations.CreateUUIDv7Function.sql");
+            using var stream = assembly.GetManifestResourceStream("HomeoSapiens.Database.Scripts.CreateUUIDv7Function.sql");
             if (stream == null)
             {
                 throw new Exception($"Resource not found");

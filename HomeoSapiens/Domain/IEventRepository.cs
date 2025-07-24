@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using DataLayer.EfClasses;
+using HomeoSapiens.Database.Models;
 
-namespace DataLayer.Repositories;
+namespace HomeoSapiens.Domain;
 
 public interface IEventRepository
 {

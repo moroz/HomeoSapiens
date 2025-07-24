@@ -1,4 +1,4 @@
-using DataLayer.EfClasses;
+using HomeoSapiens.Database.Models;
 
 namespace HomeoSapiens.Models;
 

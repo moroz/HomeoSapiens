@@ -1,15 +1,14 @@
 using System;
 
-namespace DataLayer.EfClasses;
+namespace HomeoSapiens.Database.Models;
 
-public class Event
+public class Video
 {
     public Guid Id { get; set; }
+    public string YoutubeId { get; set; }
+    public string Slug { get; set; }
     public string NamePl { get; set; }
     public string NameEn { get; set; }
-    public string Slug { get; set; }
-    public DateTime BeginsAt { get; set; }
-    public DateTime EndsAt { get; set; }
     public string DescriptionPl { get; set; }
     public string DescriptionEn { get; set; }
     public DateTime InsertedAt { get; set; }

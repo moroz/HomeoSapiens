@@ -1,11 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DataLayer.EfClasses;
-using DataLayer.EfCode;
+using HomeoSapiens.Database.Models;
+using HomeoSapiens.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataLayer.Repositories;
+namespace HomeoSapiens.Database.Repositories;
 
 public class EventRepository(AppDbContext context) : IEventRepository
 {

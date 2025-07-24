@@ -1,7 +1,7 @@
-using DataLayer.EfClasses;
+using HomeoSapiens.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataLayer.EfCode;
+namespace HomeoSapiens.Database;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {

@@ -1,5 +1,6 @@
-using DataLayer.EfCode;
-using DataLayer.Repositories;
+using HomeoSapiens.Database;
+using HomeoSapiens.Database.Repositories;
+using HomeoSapiens.Domain;
 using Microsoft.EntityFrameworkCore;
 using Vite.AspNetCore;
 
