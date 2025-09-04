@@ -1,0 +1,9 @@
+@model HomeoSapiens.Models.Components.HeaderLinkModel
+@{
+    const string defaultClasses = "hover:bg-amber-100/10 h-full flex items-center px-4";
+    var classes = defaultClasses + (string.IsNullOrEmpty(@Model.ClassName) ? "" : @Model.ClassName);
+}
+
+<li>
+    <a href="@Model.Href" class="@classes">@Model.Children</a>
+</li>

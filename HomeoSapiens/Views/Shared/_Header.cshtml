@@ -1,14 +1,26 @@
-<header class="header h-header-height bg-white text-primary shadow fixed left-0 right-0">
-    <div class="container mx-auto flex items-center h-full">
-        <h1 class="font-bold text-3xl">Homeo Sapiens</h1>
-        <nav class="text-lg navbar ml-auto flex items-center h-full">
-            <ul class="flex">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About us</a></li>
-                <li><a href="/watch">Watch</a></li>
-                <li><a href="/events">Events</a></li>
+@using HomeoSapiens.Models.Components
+@{
+    var links = new List<HeaderLinkModel>
+    {
+        new() { Href = "/", Children = "Home" },
+        new() { Href = "/about", Children = "About us" },
+        new() { Href = "/watch", Children = "Watch" },
+        new() { Href = "/events", Children = "Events" },
+        new() { Href = "/login", ClassName = "px-4 py-2 h-10 border-2 font-bold", Children = "Sign in" },
+    };
+}
+
+<header class="header h-header-height fixed left-0 right-0 border-b-2">
+    <div class="flex items-center h-full px-4">
+        <h1 class="font-bold text-3xl"><a href="/"><img src="/logo.webp" alt="Homeo Sapiens"
+                                                        class="h-14 w-auto invert"/></a></h1>
+        <nav class="text-xl navbar ml-auto h-full uppercase">
+            <ul class="flex h-full">
+                @foreach (var link in links)
+                {
+                    @await Html.PartialAsync("Components/HeaderLink", link)
+                }
             </ul>
-            <a href="/login" class="ml-4 px-4 py-2 h-10 border-2 inline-flex items-center font-bold">Sign in</a>
         </nav>
     </div>
 </header>

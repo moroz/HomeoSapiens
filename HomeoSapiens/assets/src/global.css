@@ -12,14 +12,8 @@
     --color-visited: var(--color-indigo-800);
 }
 
-:is(.navbar) {
-    &, ul, ul a {
-        @apply h-full;
-    }
-
-    ul a {
-        @apply px-4 flex items-center font-bold;
-    }
+body {
+    @apply bg-slate-900 text-amber-100;
 }
 
 .content {
