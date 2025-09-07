@@ -1,9 +1,11 @@
+@using TailwindMerge
 @model HomeoSapiens.Models.Components.HeaderLinkModel
+@inject TwMerge TwMerge
 @{
     const string defaultClasses = "hover:bg-amber-100/10 h-full flex items-center px-4";
-    var classes = defaultClasses + (string.IsNullOrEmpty(@Model.ClassName) ? "" : @Model.ClassName);
+    var classes = TwMerge.Merge(defaultClasses, Model.ClassName ?? "");
 }
 
-<li>
+<li class="h-full flex">
     <a href="@Model.Href" class="@classes">@Model.Children</a>
 </li>

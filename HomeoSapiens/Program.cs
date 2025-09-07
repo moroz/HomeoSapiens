@@ -2,6 +2,7 @@ using HomeoSapiens.Database;
 using HomeoSapiens.Database.Repositories;
 using HomeoSapiens.Domain;
 using Microsoft.EntityFrameworkCore;
+using TailwindMerge.Extensions;
 using Vite.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +12,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddViteServices();
+builder.Services.AddTailwindMerge();
 
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IVideoRepository, VideoRepository>();
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    string[] supportedCultures = ["en", "pl"];
+    options.SetDefaultCulture(supportedCultures[0])
+        .AddSupportedCultures(supportedCultures)
+        .AddSupportedUICultures(supportedCultures);
+});
 
 var app = builder.Build();
 
@@ -29,6 +39,7 @@ if (app.Environment.IsDevelopment()) app.UseViteDevelopmentServer(true);
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseRequestLocalization();
 
 app.UseAuthorization();
 
